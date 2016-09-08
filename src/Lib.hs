@@ -63,7 +63,7 @@ printValue val = BS.toLazyByteString . snd <$> runWriterT (runReaderT (printval'
 
 
 printpath :: (MonadWriter BS.Builder m, MonadReader [T.Text] m) => m ()
-printpath = tell "[" >> mconcat . reverse . intersperse "," . map (BS.byteString . T.encodeUtf8) <$> ask >>= tell >> tell "]: "
+printpath = mconcat . reverse . intersperse "," . map (BS.byteString . T.encodeUtf8) <$> ask >>= tell >> tell ": "
 
 newtype ValueFixed = ValueFixed Value deriving Generic
 
