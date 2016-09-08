@@ -35,3 +35,5 @@ Which allows you to easily grep for parts of the file you want.
 $ jsonprint ~/bit/out2.txt  | grep '^"results",3,"anarray":'
 "results",3,"anarray": [100]
 ```
+
+When printing an object, it will attempt to shuffle its elements so that the perceived larger values of the object (like arrays and objects) will tend to be printed later lines than simple values.  You can see that above where "anarray" comes aver "blah", "fdsa", and "asdf".
